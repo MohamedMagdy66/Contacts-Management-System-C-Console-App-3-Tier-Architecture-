@@ -1,0 +1,12 @@
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.AssemblyInfo.cs
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\bin\Debug\net8.0\Contacts-DataAccessLayer.deps.json
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\bin\Debug\net8.0\Contacts-DataAccessLayer.dll
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\bin\Debug\net8.0\Contacts-DataAccessLayer.pdb
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.dll
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\refint\Contacts-DataAccessLayer.dll
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\Contacts-DataAccessLayer.pdb
+C:\Users\moham\source\repos\ContactSystem-ADO.NET-3-TIER\Contacts-DataAccessLayer\obj\Debug\net8.0\ref\Contacts-DataAccessLayer.dll
