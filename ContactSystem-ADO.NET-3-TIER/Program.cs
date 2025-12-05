@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using Contacts_BusinessLayer;
 using System.Xml.Serialization;
+using Contacts_DataAccessLayer;
 public class Program
 {
     //---------------------Contact Tests-------------------------
@@ -137,6 +138,40 @@ public class Program
             Console.WriteLine("Country Does Not Exist");
         }
     }
+    
+    public static void testAddCountry()
+    {
+        clsCountry newCountry = new clsCountry();
+        newCountry.CountryName = "Egypt";
+        newCountry.CountryCode = "Egy";
+        newCountry.PhoneCode = "+20";
+        if (newCountry.Save())
+        {
+            Console.WriteLine("Country Added Successfully");
+        }
+        else
+        {
+            Console.WriteLine("Failed to add country.");
+        }
+    }
+    public static void testUpdateCountry(int Id) 
+    {
+        clsCountry country1 = clsCountry.FindCountryByID(Id);
+        if (country1 != null)
+        {
+            country1.CountryName = "Germany";
+            country1.CountryCode = "DE";
+            country1.PhoneCode = "+49";
+            if (country1.Save())
+            {
+                Console.WriteLine("Country Updated Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Failed to update country.");
+            }
+        }
+    }
     public static void testIsCountryExistByName(string countryName)
     {
         if (clsCountry.IsCountryExistByName(countryName))
@@ -149,6 +184,20 @@ public class Program
         }
     }
 
+    public static void testDeleteCountry(int Id)
+    {
+        if (clsCountry.IsCountryExistById(Id))
+        {
+            if(clsCountry.DeleteCountry(Id))
+            {
+                Console.WriteLine($"Country no {Id} deleted Successfully");
+            }
+            else
+            {
+                Console.WriteLine($"Country no {Id} Failed to be deleted");
+            }
+        }
+    }
     public static void Main(string[] args)
     {
         //testFindContact(11);
@@ -156,8 +205,11 @@ public class Program
         //testUpdateContact(11);
         //testDeleteContact(11);
         //ListContacts();
-        //testFindCountryById(1);
-        testFindCountryByName("Germany");
+        //testFindCountryById(7);
+        //testFindCountryByName("Egypt");
         //testIsCountryExistByName("Germany");
+        //testAddCountry();
+        //testUpdateCountry(5);
+        testDeleteCountry(9);
     }
 }

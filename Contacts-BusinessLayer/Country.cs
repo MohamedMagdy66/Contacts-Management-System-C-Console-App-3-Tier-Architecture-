@@ -30,6 +30,7 @@ namespace Contacts_BusinessLayer
             CountryName = countryName;
             CountryCode = countryCode;
             PhoneCode = phoneCode;
+            Mode = enMode.Update;
         }
         public static clsCountry FindCountryByID(int ID)
         {
@@ -60,6 +61,40 @@ namespace Contacts_BusinessLayer
         {
             return clsCountryDataAccess.IsCountryExistByName(CountryName);
         }
-    
+        public static bool IsCountryExistById(int Id)
+        {
+            return clsCountryDataAccess.IsCountryExistById(Id);
+        }
+        private bool _AddCountry()
+        {
+            this.CountryID = clsCountryDataAccess.AddCountry(this.CountryName, this.CountryCode,this.PhoneCode);
+            return this.CountryID != -1;
+        }
+        private bool _UpdateCountry()
+        {
+            return clsCountryDataAccess.UpdateCountry(this.CountryID, this.CountryName, this.CountryCode, this.PhoneCode);
+        }
+        public bool Save()
+        {
+            switch (Mode) {
+                case enMode.AddNew:
+
+                    if (_AddCountry()) 
+                       { 
+                          Mode = enMode.Update;
+                          return true;
+                        }
+                        return false;
+                case enMode.Update:
+                    return _UpdateCountry();
+                    
+            }
+            return false;
+        }
+        
+        public static bool DeleteCountry(int CountryID)
+        {
+            return clsCountryDataAccess.DeleteCountry(CountryID);
+        }
     }
 }

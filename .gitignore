@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Other generated files
+*.pdb
+*.cache
+*.log
+*.db
+*.sourcelink.json

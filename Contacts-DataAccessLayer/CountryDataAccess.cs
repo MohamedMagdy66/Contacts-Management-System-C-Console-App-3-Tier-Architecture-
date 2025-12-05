@@ -74,6 +74,68 @@ namespace Contacts_DataAccessLayer
             return isFound;
         }
         
+        public static int AddCountry(string countryname, string countrycode,string phonecode)
+        {
+            int CountryID = -1;
+            string query = "Insert into Countries (CountryName, Code, PhoneCode)" +
+                "values (@CountryName, @Code, @PhoneCode)" +
+                "SELECT SCOPE_IDENTITY()";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString)) 
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CountryName", countryname);
+                    command.Parameters.AddWithValue("@Code", countrycode);
+                    command.Parameters.AddWithValue("@PhoneCode", phonecode);
+                    try
+                    {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int InsertedID))
+                            CountryID = InsertedID;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error {ex.Message}");
+                        CountryID = -1;
+                    }
+                }
+            }
+            return CountryID;
+
+        }
+        public static bool UpdateCountry(int Id, string countryname, string CountryCode, string phoneCode)
+        {
+            int rowsAffected = 0;
+            string query = "Update Countries " +
+                "set CountryName=@CountryName," +
+                " Code=@Code," +
+                " PhoneCode=@PhoneCode" +
+                " where CountryID=@CountryID";
+            using(SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CountryID", Id);
+                    command.Parameters.AddWithValue("@CountryName", countryname);
+                    command.Parameters.AddWithValue("@Code", CountryCode);
+                    command.Parameters.AddWithValue("@PhoneCode", phoneCode);
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error {ex.Message}");
+                        rowsAffected = 0;
+                    }
+                }
+            }
+            return rowsAffected > 0;
+        }
         public static bool IsCountryExistByName(String Name)
         {
             bool IsFound = false;
@@ -101,8 +163,53 @@ namespace Contacts_DataAccessLayer
             }
             return IsFound;
         }
-        
-        
-    
+
+        public static bool IsCountryExistById(int Id) 
+        {
+            bool IsFound = false;
+            string query = "Select 1 from Countries where CountryID = @Id";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString)) { 
+                using(SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", Id);
+                    try {
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        IsFound = (result != null);
+                    }
+                    catch (Exception ex) 
+                    {
+                        Console.WriteLine($"Error, {ex.Message}");
+                        IsFound = false;
+                    }
+                    return IsFound;
+                }
+            }
+        }
+        public static bool DeleteCountry(int Id)
+        {
+            int rowsAffected = 0;
+            string query = "Delete from Countries where CountryID=@CountryId";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CountryId", Id);
+
+                    try
+                    {
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error {ex.Message}");
+                        rowsAffected = 0;
+                    }
+                }
+            }
+            return rowsAffected > 0;
+        }   
+            
     }
 }

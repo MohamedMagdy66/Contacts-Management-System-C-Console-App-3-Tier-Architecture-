@@ -37,5 +37,15 @@
     "C:\\Users\\moham\\.nuget\\packages\\system.security.cryptography.protecteddata\\8.0.0\\system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
     "C:\\Users\\moham\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: An error occurred while sending the request.",
+      "projectPath": "C:\\Users\\moham\\source\\repos\\ContactSystem-ADO.NET-3-TIER\\Contacts-BusinessLayer\\Contacts-BusinessLayer.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\moham\\source\\repos\\ContactSystem-ADO.NET-3-TIER\\Contacts-BusinessLayer\\Contacts-BusinessLayer.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
